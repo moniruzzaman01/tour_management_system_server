@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 require("colors");
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5002;
 
 const app = require("./app");
 
 async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/tour_management");
-  console.log("db connected!!!".green.bold);
+  await mongoose.connect(process.env.MONGODB_COMPASS).then(() => {
+    console.log("db connected!!!".green.bold);
+  });
 }
 main().catch((error) => console.log(`Connection error: ${error}`.red.bold));
 
