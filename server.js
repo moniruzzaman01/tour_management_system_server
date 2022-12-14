@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 require("colors");
-const port = process.env.PORT || 5002;
+const port = process.env.PORT || 5001;
 
 const app = require("./app");
 
