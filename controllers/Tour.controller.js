@@ -1,13 +1,14 @@
-const { CommandFailedEvent } = require("mongodb");
-const Tour = require("../models/Tour.model");
-const { getTourService } = require("../services/Tour.services");
+const {
+  getTourService,
+  createTourService,
+} = require("../services/Tour.services");
 
 module.exports.getAllTours = async (req, res) => {
   try {
     const result = await getTourService();
-    res.status(400).json({
+    res.status(200).json({
       status: true,
-      message: "query successfull",
+      message: "Tour data found",
       data: result,
     });
   } catch (error) {
@@ -18,8 +19,18 @@ module.exports.getAllTours = async (req, res) => {
   }
 };
 module.exports.createTours = async (req, res) => {
-  const tour = new Tour(req.body);
-  const result = await tour.save();
-  console.log(tour);
-  res.send(result);
+  try {
+    const result = await createTourService(req.body);
+    res.status(200).json({
+      status: true,
+      message: "Tour creation successfull",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: "Tour creation failed!",
+      error: error.message,
+    });
+  }
 };
