@@ -7,4 +7,6 @@ router
   .get(TourController.getAllTours)
   .post(TourController.createTours);
 
+router.route("/:id").get(TourController.getTourById);
+
 module.exports = router;

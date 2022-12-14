@@ -10,3 +10,8 @@ module.exports.createTourService = async (data) => {
   //   console.log(tour);
   return result;
 };
+module.exports.getTourByIdService = async (data) => {
+  await Tours.updateOne({ _id: data }, { $inc: { views: 1 } });
+  const result = await Tours.find({ _id: data });
+  return result;
+};
