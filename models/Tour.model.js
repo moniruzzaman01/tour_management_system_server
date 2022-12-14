@@ -9,6 +9,34 @@ const tourSchema = mongoose.Schema({
     max: [100, "Tour name is too long."],
     unique: [true, "Tour name must be unique."],
   },
+  description: {
+    type: String,
+    required: true,
+  },
+  image: {
+    type: String,
+    required: true,
+  },
+  duration: {
+    type: Number,
+    required: true,
+  },
+  ratings: {
+    type: Number,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  views: {
+    type: Number,
+    required: true,
+  },
 });
 
 //Models
