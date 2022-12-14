@@ -12,6 +12,7 @@ const tourSchema = mongoose.Schema({
   description: {
     type: String,
     required: true,
+    min: [20, "Please provide description in details"],
   },
   image: {
     type: String,
