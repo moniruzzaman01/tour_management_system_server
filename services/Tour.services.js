@@ -19,3 +19,11 @@ module.exports.getTrendingToursService = async () => {
   const result = await Tours.find({}).sort({ views: -1 }).limit(3);
   return result;
 };
+module.exports.getCheapestToursService = async () => {
+  const result = await Tours.find({}).sort({ price: 1 }).limit(3);
+  return result;
+};
+module.exports.getPremiumToursService = async () => {
+  const result = await Tours.find({}).sort({ price: -1 }).limit(3);
+  return result;
+};

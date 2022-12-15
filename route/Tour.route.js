@@ -9,6 +9,10 @@ router
 
 router.route("/trending").get(TourController.getTrendingTours);
 
+router.route("/cheapest").get(TourController.getCheapestTours);
+
+router.route("/premium").get(TourController.getPremiumTours);
+
 router.route("/:id").get(TourController.getTourById);
 
 module.exports = router;

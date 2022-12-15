@@ -3,6 +3,8 @@ const {
   createTourService,
   getTourByIdService,
   getTrendingToursService,
+  getCheapestToursService,
+  getPremiumToursService,
 } = require("../services/Tour.services");
 
 module.exports.getAllTours = async (req, res) => {
@@ -64,6 +66,38 @@ module.exports.getTrendingTours = async (req, res) => {
     res.status(400).json({
       status: false,
       message: "query by trending failed!",
+      error: error.message,
+    });
+  }
+};
+module.exports.getCheapestTours = async (req, res) => {
+  try {
+    const result = await getCheapestToursService();
+    res.status(200).json({
+      status: true,
+      message: "query by cheapest successfull",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: "query by cheapest failed!",
+      error: error.message,
+    });
+  }
+};
+module.exports.getPremiumTours = async (req, res) => {
+  try {
+    const result = await getPremiumToursService();
+    res.status(200).json({
+      status: true,
+      message: "query by premium successfull",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: "query by premium failed!",
       error: error.message,
     });
   }
