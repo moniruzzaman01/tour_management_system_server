@@ -5,6 +5,8 @@ const port = process.env.PORT || 5001;
 
 const app = require("./app");
 
+mongoose.set("strictQuery", false);
+
 async function main() {
   await mongoose.connect(process.env.MONGODB_COMPASS).then(() => {
     console.log("db connected!!!".green.bold);

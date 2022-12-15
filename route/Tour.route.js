@@ -13,6 +13,9 @@ router.route("/cheapest").get(TourController.getCheapestTours);
 
 router.route("/premium").get(TourController.getPremiumTours);
 
-router.route("/:id").get(TourController.getTourById);
+router
+  .route("/:id")
+  .get(TourController.getTourById)
+  .patch(TourController.updateToursById);
 
 module.exports = router;

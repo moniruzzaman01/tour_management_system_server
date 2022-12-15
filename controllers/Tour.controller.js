@@ -5,6 +5,7 @@ const {
   getTrendingToursService,
   getCheapestToursService,
   getPremiumToursService,
+  updateToursByIdService,
 } = require("../services/Tour.services");
 
 module.exports.getAllTours = async (req, res) => {
@@ -98,6 +99,22 @@ module.exports.getPremiumTours = async (req, res) => {
     res.status(400).json({
       status: false,
       message: "query by premium failed!",
+      error: error.message,
+    });
+  }
+};
+module.exports.updateToursById = async (req, res) => {
+  try {
+    const result = await updateToursByIdService(req.params.id, req.body);
+    res.status(200).json({
+      status: true,
+      message: "query for update tour successfull",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: "query for update tour failed!",
       error: error.message,
     });
   }

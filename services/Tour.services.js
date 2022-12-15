@@ -27,3 +27,9 @@ module.exports.getPremiumToursService = async () => {
   const result = await Tours.find({}).sort({ price: -1 }).limit(3);
   return result;
 };
+module.exports.updateToursByIdService = async (id, updateData) => {
+  const result = await Tours.updateOne({ _id: id }, updateData, {
+    runValidators: true,
+  });
+  return result;
+};
