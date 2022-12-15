@@ -2,6 +2,7 @@ const {
   getTourService,
   createTourService,
   getTourByIdService,
+  getTrendingToursService,
 } = require("../services/Tour.services");
 
 module.exports.getAllTours = async (req, res) => {
@@ -47,6 +48,22 @@ module.exports.getTourById = async (req, res) => {
     res.status(400).json({
       status: false,
       message: "query by id failed!",
+      error: error.message,
+    });
+  }
+};
+module.exports.getTrendingTours = async (req, res) => {
+  try {
+    const result = await getTrendingToursService();
+    res.status(200).json({
+      status: true,
+      message: "query by trending successfull",
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      status: false,
+      message: "query by trending failed!",
       error: error.message,
     });
   }

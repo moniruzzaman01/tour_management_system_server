@@ -15,3 +15,7 @@ module.exports.getTourByIdService = async (data) => {
   const result = await Tours.find({ _id: data });
   return result;
 };
+module.exports.getTrendingToursService = async () => {
+  const result = await Tours.find({}).sort({ views: -1 }).limit(3);
+  return result;
+};
