@@ -5,9 +5,9 @@ module.exports.getTourService = async () => {
   return result;
 };
 module.exports.createTourService = async (data) => {
+  data["views"] = 0;
   const tour = new Tours(data);
   const result = await tour.save();
-  //   console.log(tour);
   return result;
 };
 module.exports.getTourByIdService = async (data) => {
