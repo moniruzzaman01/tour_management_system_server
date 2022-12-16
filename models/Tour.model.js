@@ -33,7 +33,11 @@ const tourSchema = mongoose.Schema({
   },
   category: {
     type: String,
-    enum: ["mountain", "beach", "mangrove", "nature"],
+    enum: {
+      values: ["mountain", "beach", "nature"],
+      message:
+        "Catrgory name can't accept {VALUE}. Please provive mountain or beach or nature",
+    },
   },
   views: {
     type: Number,
