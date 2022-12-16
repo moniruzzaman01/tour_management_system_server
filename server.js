@@ -8,7 +8,7 @@ const app = require("./app");
 mongoose.set("strictQuery", false);
 
 async function main() {
-  await mongoose.connect(process.env.MONGODB_COMPASS).then(() => {
+  await mongoose.connect(process.env.MONGODB_ATLAS).then(() => {
     console.log("db connected!!!".green.bold);
   });
 }
