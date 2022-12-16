@@ -1,6 +1,6 @@
 # [Tour Management System Backend](https://tour-management-system-server.vercel.app)
 
-## Features (available for admin):
+## Features:
 
 - Can create a tour plan
 - Can see all tour plans and also a single tour plan filtered by tour id
