@@ -7,4 +7,15 @@ router
   .get(TourController.getAllTours)
   .post(TourController.createTours);
 
+router.route("/trending").get(TourController.getTrendingTours);
+
+router.route("/cheapest").get(TourController.getCheapestTours);
+
+router.route("/premium").get(TourController.getPremiumTours);
+
+router
+  .route("/:id")
+  .get(TourController.getTourById)
+  .patch(TourController.updateToursById);
+
 module.exports = router;
